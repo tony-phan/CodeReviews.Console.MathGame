@@ -36,8 +36,8 @@ namespace MathGame
                 case "/":
                     while (operand2 == 0 || (operand1 % operand2) != 0)
                     {
-                        operand1 = random.Next(0, 16);
-                        operand2 = random.Next(0, 16);
+                        operand1 = random.Next(0, 100);
+                        operand2 = random.Next(0, 100);
                     }
                     answer = operand1 / operand2;
                     break;
