@@ -21,7 +21,7 @@ namespace MathGame
 
         public override string ToString()
         {
-            return $"Question: {Operand1} {Operation} {Operand2} = ?\tAnswer: {Answer}\tYou Answered: {UserAnswer}\t\tResult: {Result}";
+            return $"{Operand1} {Operation} {Operand2} = ?\t{Answer}\t{UserAnswer}\t\t{Result}";
         }
     }
 }

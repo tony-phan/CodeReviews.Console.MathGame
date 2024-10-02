@@ -3,17 +3,17 @@ namespace MathGame
     public class Game
     {
         public static Random random = new Random();
-        public int correct { get; set; }
-        public int incorrect { get; set; }
-        public int totalQuestions { get; set; }
-        public List<GameLog> history { get; set; }
+        public int Correct { get; set; }
+        public int Incorrect { get; set; }
+        public int TotalQuestions { get; set; }
+        public List<GameLog> History { get; set; }
 
         public Game(List<GameLog> history)
         {
-            this.correct = 0;
-            this.incorrect = 0;
-            this.totalQuestions = 0;
-            this.history = history;
+            this.Correct = 0;
+            this.Incorrect = 0;
+            this.TotalQuestions = 0;
+            this.History = history;
         }
 
         public void PerformOperation(string operation)
@@ -51,7 +51,7 @@ namespace MathGame
             string result = answer == userAnswer ? "Correct" : "Wrong";
             Console.WriteLine(result);
             this.UpdateScore(result);
-            this.history.Add(new GameLog(operand1, operand2, operation, answer, userAnswer, result));
+            this.History.Add(new GameLog(operand1, operand2, operation, answer, userAnswer, result));
         }
 
         public void ShowGameMenu()
@@ -67,18 +67,19 @@ namespace MathGame
 
         public void ShowGameScore()
         {
-            Console.WriteLine($"SCORE\nCorrect: {correct}\tWrong: {incorrect}\t Total Questions: {totalQuestions}");
+            Console.WriteLine($"SCORE\nCorrect: {Correct}\tWrong: {Incorrect}\tTotal Questions: {TotalQuestions}");
         }
 
         public void DisplayGameHistory()
         {
-            if (history.Count == 0)
+            if (History.Count == 0)
             {
                 Console.WriteLine("No game history");
             }
             else
             {
-                foreach (GameLog gameLog in history)
+                Console.WriteLine("Question\tAnswer\tYou Answered\tResult");
+                foreach (GameLog gameLog in History)
                 {
                     Console.WriteLine(gameLog.ToString());
                 }
@@ -87,13 +88,13 @@ namespace MathGame
 
         private void UpdateScore(string result)
         {
-            totalQuestions += 1;
+            TotalQuestions += 1;
             if(result == "Correct")
             {
-                correct += 1;
+                Correct += 1;
             } else
             {
-                incorrect += 1;
+                Incorrect += 1;
             }
         }
     }
